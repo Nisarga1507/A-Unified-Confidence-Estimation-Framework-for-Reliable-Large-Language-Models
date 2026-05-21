@@ -440,3 +440,14 @@ If referencing this repository, please cite appropriately after publication.
 # License
 
 This project is released under the MIT License.
+
+# Implementation Status
+
+| Component | Status |
+|---|---|
+| Baseline LLM Pipeline | In Progress |
+| Token Uncertainty | In Progress |
+| Retrieval Agreement | Planned |
+| Verification Consistency | Planned |
+| Calibration Metrics | In Progress |
+| Reliability Diagrams | Planned |
