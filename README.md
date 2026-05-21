@@ -1,148 +1,250 @@
 # LLM Confidence Estimator
 
 ## MSc Dissertation Project
-
-**Confidence Estimation for Reliable Language Models**
-
----
-
-## Project Overview
-
-This project explores how to improve the reliability of large language models (LLMs) by designing a confidence estimation framework for detecting and reducing hallucinations.
-
-LLMs are known to produce fluent responses that are sometimes factually incorrect. While techniques such as retrieval-augmented generation (RAG) and self-verification can improve performance, they do not provide a clear way to determine whether a given answer can be trusted.
-
-The focus of this project is therefore on shifting from improving answer generation to evaluating answer reliability.
+### Newcastle University – MSc Data Science
 
 ---
 
-## Research Question
+# Project Title
 
-How can a confidence estimator be designed to determine whether an AI-generated answer should be accepted, refined, or rejected?
-
----
-
-## Objectives
-
-* Build a baseline language model on the TruthfulQA dataset
-* Evaluate performance using accuracy and calibration metrics
-* Extract confidence signals from model outputs (e.g., token probabilities)
-* Develop a method for combining these signals into a single confidence score
-* Compare different approaches for combining signals
-* Design a simple decision framework (accept / refine / abstain)
+Calibrated Multi-Signal Confidence Estimation for Hallucination Detection and Reliability Assessment in Large Language Models
 
 ---
 
-## Dataset
+# Overview
 
-* TruthfulQA (Multiple Choice format)
-* A benchmark dataset designed to evaluate truthfulness in language models
+Large Language Models (LLMs) are capable of generating fluent and coherent text, but they frequently produce hallucinations — factually incorrect or unsupported responses presented with high confidence.
 
----
+This project investigates how calibrated confidence estimation can improve the reliability and trustworthiness of language model outputs.
 
-## Model
+Rather than focusing solely on improving answer generation, this research focuses on estimating whether an AI-generated response should be trusted, refined, or rejected.
 
-* Initial baseline: Mistral-7B-Instruct (or LLaMA-3.1-8B-Instruct)
-* The model should provide token-level probabilities for confidence estimation
+The project proposes a unified confidence estimation framework that combines multiple reliability signals into a calibrated confidence score.
 
 ---
 
-## Evaluation Metrics
+# Research Problem
 
-* Accuracy
-* Confidence scores
-* Expected Calibration Error (ECE)
-* Reliability diagrams
+Current hallucination mitigation approaches such as Retrieval-Augmented Generation (RAG) and self-verification improve factual grounding but do not provide a reliable mechanism for determining whether generated answers are trustworthy.
 
-These metrics are used to evaluate not only correctness, but also how well the model’s confidence reflects its actual performance.
+Existing methods often:
+- rely on isolated confidence signals
+- combine signals heuristically
+- lack proper calibration
+- do not support principled decision-making
+
+This dissertation investigates whether multiple reliability signals can be integrated into a calibrated confidence estimation framework for hallucination detection and trustworthy AI decision-making.
 
 ---
 
-## Pipeline
+# Research Question
 
+How can multiple reliability signals be integrated and calibrated to estimate the trustworthiness of language model outputs?
+
+---
+
+# Objectives
+
+- Develop a baseline hallucination evaluation pipeline
+- Implement multiple reliability signals
+- Design calibrated confidence estimation methods
+- Evaluate calibration quality using reliability metrics
+- Support accept/refine/abstain decision-making
+
+---
+
+# System Pipeline
+
+Question
+↓
+Language Model Generation
+↓
+Signal Extraction
+├── Token Probability
+├── Retrieval Agreement
+└── Verification Consistency
+↓
+Confidence Estimation
+↓
+Calibration
+↓
+Decision Module
+├── Accept
+├── Refine
+└── Abstain
+
+---
+
+# Reliability Signals
+
+## 1. Token Probability
+
+Measures internal model uncertainty using token-level probabilities extracted during generation.
+
+## 2. Retrieval Agreement
+
+Measures alignment between generated responses and retrieved supporting evidence.
+
+## 3. Verification Consistency
+
+Measures answer stability across verification or self-check generations.
+
+---
+
+# Confidence Estimation
+
+The project evaluates multiple confidence aggregation approaches including:
+
+- Weighted linear combination
+- Logistic regression
+- Calibration-based confidence estimation
+- Optional neural combination models
+
+---
+
+# Decision Framework
+
+The confidence score is used to determine whether responses should be:
+
+- Accepted
+- Refined
+- Rejected / Abstained
+
+Thresholds are optimized using selective prediction and risk-coverage analysis.
+
+---
+
+# Datasets
+
+## TruthfulQA
+Primary hallucination evaluation dataset.
+
+## FEVER
+Fact verification dataset for retrieval and verification experiments.
+
+---
+
+# Evaluation Metrics
+
+## Standard Metrics
+
+- Accuracy
+- Hallucination Rate
+- Selective Accuracy
+
+## Calibration Metrics
+
+- Expected Calibration Error (ECE)
+- Reliability Diagrams
+
+---
+
+# Repository Structure
+
+```text
+llm-confidence-estimator/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── notebooks/
+│   ├── baseline/
+│   ├── calibration/
+│   ├── retrieval/
+│
+├── src/
+│   ├── generation/
+│   ├── retrieval/
+│   ├── verification/
+│   ├── calibration/
+│   ├── evaluation/
+│   └── utils/
+│
+├── outputs/
+│   ├── logs/
+│   ├── predictions/
+│   ├── metrics/
+│
+├── figures/
+├── configs/
+├── experiments/
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
-Question → Model → Prediction → Confidence → Evaluation
-```
 
 ---
 
-## Core Idea
+# Current Progress
 
-The main idea is to build a confidence estimator based on multiple signals:
+## Completed
+- Repository setup
+- Baseline TruthfulQA notebook
+- Initial project structure
+- Literature review planning
 
-* Token probability (model uncertainty)
-* Retrieval agreement (alignment with external knowledge) *(future work)*
-* Verification consistency (stability across outputs) *(future work)*
+## In Progress
+- Baseline evaluation pipeline
+- Token probability extraction
+- ECE computation
 
-These signals will be combined into a single confidence score that can be used to support decision-making.
-
----
-
-## Methodology
-
-### Phase 1: Baseline
-
-* Run the model on TruthfulQA (MC format)
-* Compute accuracy and basic confidence
-* Implement ECE and reliability diagrams
-
-### Phase 2: Signal Definition
-
-* Define how token probability is computed
-* Introduce additional signals if needed
-
-### Phase 3: Combination Methods
-
-* Weighted sum (baseline approach)
-* Logistic regression
-* Simple neural network (MLP)
-* Calibration techniques (e.g., Platt scaling)
-
-### Phase 4: Decision Framework
-
-* Use confidence to decide: accept / refine / abstain
-* Tune thresholds using validation data
-* Evaluate trade-offs between accuracy and coverage
+## Planned
+- Retrieval agreement implementation
+- Verification consistency module
+- Confidence aggregation experiments
+- Calibration analysis
 
 ---
 
-## Current Progress
+# Technologies Used
 
-* Repository created
-* Project structure set up
-* Initial plan defined
-
----
-
-## Next Steps
-
-* Implement baseline pipeline on TruthfulQA
-* Run initial model predictions
-* Extract token-level probabilities
-* Compute calibration metrics (ECE)
-* Visualise results using reliability diagrams
+- Python
+- PyTorch
+- HuggingFace Transformers
+- LangChain
+- FAISS
+- scikit-learn
+- matplotlib
 
 ---
 
-## Expected Contribution
+# Experimental Workflow
 
-* A framework for estimating the reliability of LLM outputs
-* Comparison of different confidence estimation methods
-* Insights into how confidence can be used for safer decision-making
-
----
-
-## Project Structure
-
-```
-data/        → dataset references  
-notebooks/   → experiments and baseline implementation  
-src/         → core code  
-outputs/     → results and plots  
-```
+1. Baseline language model evaluation
+2. Calibration metric implementation
+3. Reliability signal extraction
+4. Confidence aggregation experiments
+5. Threshold optimization
+6. Reliability analysis
 
 ---
 
-## Summary
+# Expected Contribution
 
-Overall, this project focuses on improving the trustworthiness of language models by enabling them to assess their own reliability, rather than only improving their ability to generate answers.
+This project contributes a calibrated multi-signal confidence estimation framework that integrates uncertainty estimation, retrieval grounding, and verification consistency to improve hallucination detection and trustworthy AI decision-making.
+
+---
+
+# Future Work
+
+Potential future directions include:
+- larger language models
+- adaptive retrieval mechanisms
+- reinforcement learning from reliability feedback
+- multimodal reliability estimation
+
+---
+
+# Author
+
+Nisarga  
+MSc Data Science  
+Newcastle University
+
+---
+
+# Supervisor Guidance
+
+Research conducted under MSc dissertation supervision at Newcastle University.
