@@ -69,7 +69,7 @@ Unlike standard hallucination mitigation approaches that rely on isolated heuris
 
 Current hallucination mitigation approaches such as Retrieval-Augmented Generation (RAG) and self-verification improve factual grounding but do not provide a reliable mechanism for determining whether generated responses are trustworthy.
 
-Existing approaches often evaluate reliability using isolated confidence signals or loosely combined heuristics.
+Existing hallucination mitigation approaches such as Retrieval-Augmented Generation (RAG), SelfCheckGPT, and uncertainty estimation methods provide valuable reliability signals but are typically evaluated independently. Limited research has systematically investigated how multiple reliability signals can be calibrated and combined within a unified confidence estimation framework for selective prediction. This dissertation addresses this gap by studying confidence aggregation and calibration strategies for reliability-aware decision making in Large Language Models. or loosely combined heuristics.
 
 While recent work explores confidence calibration and multi-signal hallucination detection, limited research systematically evaluates calibrated confidence aggregation strategies for selective prediction in language models.
 
@@ -87,12 +87,16 @@ How can multiple reliability signals be integrated and calibrated to estimate th
 
 The project aims to:
 
-- Develop a baseline hallucination evaluation pipeline
-- Implement multiple reliability signals
-- Design calibrated confidence estimation methods
-- Compare heuristic and learned confidence combiners
-- Evaluate calibration quality using reliability metrics
-- Support selective accept/refine/abstain decision-making
+1. Develop a reproducible baseline evaluation pipeline using TruthfulQA and an open-source instruction-tuned language model.
+
+2. Investigate token-level uncertainty estimation as an initial confidence signal for hallucination detection.
+
+3. Implement and evaluate additional reliability signals including retrieval agreement and verification consistency.
+
+4. Design and compare confidence aggregation strategies for combining heterogeneous reliability signals.
+
+5. Evaluate calibration quality and selective prediction performance using calibration and risk-aware metrics.
+   
 
 The objective is not only to improve hallucination detection performance, but also to ensure that predicted confidence scores align closely with empirical correctness probabilities.
 
@@ -105,22 +109,36 @@ Question
    ↓
 LLM Generation
    ↓
-Signal Extraction
+Baseline Prediction
+   ↓
+Reliability Signal Extraction
    ├── Token Uncertainty
    ├── Retrieval Agreement
    └── Verification Consistency
    ↓
-Confidence Estimator
+Confidence Aggregation
    ↓
 Calibration Layer
+   ├── Temperature Scaling
+   ├── Platt Scaling
+   └── Isotonic Regression
    ↓
-Decision Module
+Selective Prediction
    ├── Accept
    ├── Refine
    └── Abstain
 ```
 
 ---
+
+# Update Baseline Section
+
+The baseline system evaluates Mistral-7B-Instruct on the TruthfulQA MC1 benchmark using constrained numerical option prediction. Token-level confidence scores are extracted during autoregressive generation and used for calibration analysis. Baseline experiments currently achieve approximately:
+
+- Accuracy: 51.4%
+- Expected Calibration Error (ECE): 0.2293
+
+These results provide the reference point against which subsequent confidence estimation and calibration methods are evaluated.
 
 # Reliability Signals
 
@@ -144,15 +162,14 @@ Measures answer stability across multiple independently generated responses usin
 
 # Confidence Estimation
 
-The project evaluates multiple confidence aggregation strategies, including:
+The framework evaluates both heuristic and learned confidence aggregation methods:
 
 - Weighted linear aggregation
-- Logistic regression
+- Logistic regression confidence models
 - Calibrated logistic regression
 - Optional neural confidence combiners
 
-Both heuristic and learned combination methods are evaluated experimentally.
-
+Confidence estimators are trained using reliability signals extracted from token uncertainty, retrieval grounding, and verification consistency modules.
 ---
 
 # Calibration
@@ -168,9 +185,10 @@ The project evaluates calibration quality using:
 
 Calibration methods evaluated include:
 
+- Temperature Scaling
 - Platt Scaling
 - Isotonic Regression
-
+  
 ---
 
 # Decision Framework
@@ -244,13 +262,14 @@ llm-confidence-estimator/
 │   └── splits/
 │
 ├── notebooks/
-│   ├── 01_baseline_truthfulqa.ipynb
-│   ├── 02_token_uncertainty.ipynb
-│   ├── 03_retrieval_agreement.ipynb
-│   ├── 04_selfcheck_verification.ipynb
-│   ├── 05_confidence_combination.ipynb
-│   └── 06_calibration_analysis.ipynb
-│
+|   ├── 01_baseline_truthfulqa.ipynb
+│   ├── 02_option_likelihood_scoring.ipynb
+│   ├── 03_calibration_analysis.ipynb
+│   ├── 04_retrieval_agreement.ipynb
+│   ├── 05_verification_consistency.ipynb
+│   ├── 06_confidence_aggregation.ipynb
+│   └── 07_selective_prediction.ipynb
+|   
 ├── src/
 │   ├── generation/
 │   ├── retrieval/
@@ -392,7 +411,7 @@ All generated outputs, predictions, and confidence estimates are logged for late
 
 # Expected Contribution
 
-This dissertation contributes a calibrated multi-signal confidence estimation framework that integrates:
+This dissertation contributes a unified calibration-aware confidence estimation framework that integrates token uncertainty, retrieval agreement, and verification consistency under shared evaluation conditions. The framework is designed to improve hallucination detection, confidence calibration, and selective prediction performance while supporting reliability-aware decision making in Large Language Models.
 
 - model uncertainty
 - retrieval grounding
