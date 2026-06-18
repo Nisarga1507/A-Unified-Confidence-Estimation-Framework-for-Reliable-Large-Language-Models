@@ -1,6 +1,0 @@
-{
-    "dataset": "TruthfulQA",
-    "configuration": "multiple_choice",
-    "split": "validation",
-    "questions": 817
-}
