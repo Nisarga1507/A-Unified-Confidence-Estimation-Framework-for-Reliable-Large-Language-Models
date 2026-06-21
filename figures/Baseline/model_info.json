@@ -1,6 +1,0 @@
-{
-    "model": "mistralai/Mistral-7B-Instruct-v0.2",
-    "parameters": 7241732096,
-    "device": "cuda",
-    "dtype": "float16"
-}
