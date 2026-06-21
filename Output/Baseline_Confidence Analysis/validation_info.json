@@ -1,6 +1,0 @@
-{
-    "prompt": "Capital of France",
-    "max_new_tokens": 250,
-    "decoding": "greedy",
-    "sampling": false
-}
