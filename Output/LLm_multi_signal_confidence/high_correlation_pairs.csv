@@ -1,0 +1,7 @@
+Signal_1,Signal_2,Correlation
+confidence,entropy,-0.8579226155374815
+confidence,margin_score,0.8328758994851215
+confidence,probability_gap,0.8328758994851215
+normalised_entropy,margin_score,-0.8142002753210672
+normalised_entropy,probability_gap,-0.8142002753210672
+margin_score,probability_gap,1.0
