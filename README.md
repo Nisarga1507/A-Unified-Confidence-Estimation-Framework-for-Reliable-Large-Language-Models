@@ -108,33 +108,6 @@ To achieve the research aim, this dissertation pursues the following objectives:
 
 # System Pipeline
 
-```text
-Question
-   ↓
-LLM Generation
-   ↓
-Baseline Prediction
-   ↓
-Reliability Signal Extraction
-   ├── Token Uncertainty
-   ├── Retrieval Agreement
-   └── Verification Consistency
-   ↓
-Confidence Aggregation
-   ↓
-Calibration Layer
-   ├── Temperature Scaling
-   ├── Platt Scaling
-   └── Isotonic Regression
-   ↓
-Selective Prediction
-   ├── Accept
-   ├── Refine
-   └── Abstain
-```
-
-# System Pipeline
-
 The complete experimental workflow consists of five sequential stages, beginning with baseline confidence estimation and culminating in the comparative evaluation of the proposed multi-signal confidence estimation framework.
 
 ```mermaid
