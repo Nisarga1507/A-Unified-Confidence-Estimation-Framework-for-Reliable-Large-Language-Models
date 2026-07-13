@@ -253,44 +253,41 @@ https://fever.ai/
 
 # Repository Structure
 
-```text
-llm-confidence-estimator/
-│
+```llm-confidence-estimation/
+
 ├── data/
 │   ├── raw/
 │   ├── processed/
-│   └── splits/
+│   └── metadata/
 │
 ├── notebooks/
-|   ├── 01_baseline_truthfulqa.ipynb
-│   ├── 02_option_likelihood_scoring.ipynb
-│   ├── 03_calibration_analysis.ipynb
-│   ├── 04_retrieval_agreement.ipynb
-│   ├── 05_verification_consistency.ipynb
-│   ├── 06_confidence_aggregation.ipynb
-│   └── 07_selective_prediction.ipynb
-|   
-├── src/
-│   ├── generation/
-│   ├── retrieval/
-│   ├── verification/
-│   ├── confidence/
-│   ├── calibration/
-│   ├── evaluation/
-│   └── utils/
+│   ├── 01_baseline_confidence_estimation.ipynb
+│   ├── 02_baseline_confidence_evaluation.ipynb
+│   ├── 03_option_likelihood_signal_analysis.ipynb
+│   ├── 04_multi_signal_confidence_estimation.ipynb
+│   └── 05_final_comparative_evaluation.ipynb
+│
+├── figures/
+│   ├── notebook1/
+│   ├── notebook2/
+│   ├── notebook3/
+│   ├── notebook4/
+│   └── notebook5/
 │
 ├── outputs/
-│   ├── predictions/
-│   ├── metrics/
-│   ├── logs/
-│   └── plots/
+│   ├── baseline/
+│   ├── evaluation/
+│   ├── option_likelihood/
+│   ├── fusion/
+│   └── comparison/
 │
-├── configs/
-├── experiments/
-├── figures/
+├── results/
 │
-├── requirements.txt
+├── src/
+│
 ├── README.md
+├── requirements.txt
+├── LICENSE
 └── .gitignore
 ```
 
@@ -444,29 +441,3 @@ Newcastle University
 
 ---
 
-# Supervisor Guidance
-
-Research conducted under MSc dissertation supervision at Newcastle University.
-
----
-
-# Citation
-
-If referencing this repository, please cite appropriately after publication.
-
----
-
-# License
-
-This project is released under the MIT License.
-
-# Implementation Status
-
-| Component | Status |
-|---|---|
-| Baseline LLM Pipeline | In Progress |
-| Token Uncertainty | In Progress |
-| Retrieval Agreement | Planned |
-| Verification Consistency | Planned |
-| Calibration Metrics | In Progress |
-| Reliability Diagrams | Planned |
