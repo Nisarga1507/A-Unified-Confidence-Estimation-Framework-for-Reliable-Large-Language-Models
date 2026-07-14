@@ -612,16 +612,16 @@ These directions provide opportunities to further improve uncertainty-aware deci
 
 # Citation
 
-If you use this repository or build upon this work in your research, please cite it using the following reference.
+If you use this repository or build upon this work in your research, please cite it as follows.
 
 ## BibTeX
 
 ```bibtex
-@mastersthesis{kinate2025confidence,
+@mastersthesis{nisarga2025confidence,
   author       = {Nisarga},
   title        = {Improving Confidence Estimation for Large Language Models Using Option Likelihood Signals and Multi-Signal Confidence Fusion},
   school       = {Newcastle University},
-  year         = {2026},
+  year         = {2025},
   type         = {MSc Dissertation},
   address      = {Newcastle upon Tyne, United Kingdom}
 }
@@ -630,10 +630,9 @@ If you use this repository or build upon this work in your research, please cite
 ## APA Style
 
 Nisarga. (2025). *Improving Confidence Estimation for Large Language Models Using Option Likelihood Signals and Multi-Signal Confidence Fusion* (MSc dissertation). Newcastle University.
-
 # Author
 
-## Kinate Reddy
+## Nisarga
 
 **MSc Data Science**  
 School of Computing  
@@ -652,13 +651,13 @@ United Kingdom
 - Machine Learning
 - Trustworthy Artificial Intelligence
 - Statistical Evaluation
-- Explainable AI
+- Explainable Artificial Intelligence (XAI)
 
 ### Contact
 
 - **GitHub:** https://github.com/Nisarga1507
-- **Email:** <Nisarga2@newcastle.ac.uk> *(optional)*
+- **Email:** Nisarga2@newcastle.ac.uk
 
 ---
 
-© 2025 Kinate Reddy. This repository accompanies the MSc Data Science dissertation submitted to Newcastle University.
+© 2025 Nisarga. This repository accompanies the MSc Data Science dissertation submitted to Newcastle University.
