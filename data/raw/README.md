@@ -13,13 +13,20 @@ This directory contains the original dataset used throughout this dissertation.
 
 ## Usage
 
-The dataset is used as the input for:
+The raw **TruthfulQA Multiple-Choice** dataset serves as the input to the complete experimental workflow.
 
-- Notebook 1 – Baseline Confidence Estimation
+Specifically, it is first loaded in:
 
-All preprocessing, confidence estimation and feature extraction are performed within the experimental notebooks.
+- **Notebook 1 – Baseline Confidence Estimation**
 
-The original dataset is stored in its raw format and is not modified.
+The predictions, confidence scores and uncertainty estimates generated from this dataset are subsequently analysed throughout the remaining notebooks:
+
+- Notebook 2 – Baseline Confidence Evaluation
+- Notebook 3 – Option Likelihood Signal Analysis
+- Notebook 4 – Multi-Signal Confidence Estimation
+- Notebook 5 – Final Comparative Evaluation
+
+The original dataset remains unchanged throughout the project. All preprocessing and feature engineering are performed during notebook execution.
 
 ## Reference
 
