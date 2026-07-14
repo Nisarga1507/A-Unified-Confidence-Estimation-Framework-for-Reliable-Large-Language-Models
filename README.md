@@ -156,14 +156,11 @@ The baseline confidence estimator is assessed using discrimination, calibration 
 
 ## Baseline Performance
 
-| Metric | Final Result |
-|---------|-------------:|
-| Accuracy | **%** |
-| ROC-AUC | **** |
-| Expected Calibration Error (ECE) | **** |
-
-> **Note:** Replace the values above with the final results obtained from your completed baseline evaluation notebook.
-
+| Metric                           | Final Result |
+|----------------------------------|-------------:|
+| Accuracy                         |  **50.55%**  |
+| ROC-AUC                          |  **0.6855**  |
+| Expected Calibration Error (ECE) |  **0.1590**  |
 
 # Uncertainty Signals
 
@@ -237,10 +234,10 @@ The proposed multi-signal confidence estimation framework was compared with the 
 
 ## ROC-AUC Performance Comparison
 
-| Confidence Estimator | ROC-AUC |
-|----------------------|--------:|
-| Baseline Confidence | **0.XXXX** |
-| Multi-Signal Confidence | **0.XXXX** |
+| Confidence Estimator    |   ROC-AUC  |
+|-------------------------|-----------:|
+| Baseline Confidence     | **0.6855** |
+| Multi-Signal Confidence | **0.7310** |
 
 The results demonstrate that the proposed multi-signal confidence estimator achieved improved discrimination performance compared with the conventional baseline confidence estimator, indicating that integrating complementary uncertainty signals provides a more reliable estimate of prediction correctness.
 
@@ -248,13 +245,13 @@ The results demonstrate that the proposed multi-signal confidence estimator achi
 
 To assess whether the observed improvement was statistically robust, a paired bootstrap comparison was performed using repeated bootstrap resampling.
 
-| Statistic | Value |
-|-----------|------:|
-| Mean Difference | **XXXX** |
-| 95% Confidence Interval | **(XXXX, XXXX)** |
-| Bootstrap P-value | **XXXX** |
+| Statistic               |         Value        |
+|-------------------------|---------------------:|
+| Mean Difference         |      **0.0452**      |
+| 95% Confidence Interval | **(0.0307, 0.0595)** |
+| Bootstrap P-value       |      **<0.001**      |
 
-The paired bootstrap analysis showed that the proposed framework consistently achieved higher discrimination performance across the bootstrap resamples. The confidence interval and bootstrap p-value provide statistical evidence supporting the robustness of the observed improvement relative to the conventional baseline confidence estimator.
+The paired bootstrap analysis demonstrated that the proposed multi-signal confidence estimator consistently achieved higher ROC-AUC values than the conventional baseline confidence estimator. The estimated mean improvement was 0.0452 ROC-AUC, with a 95% confidence interval of (0.0307, 0.0595) and a bootstrap p-value < 0.001, providing strong statistical evidence that the observed improvement is robust across bootstrap resamples.
 
 # Calibration Analysis
 
@@ -264,10 +261,10 @@ Calibration performance was assessed using **Expected Calibration Error (ECE)**,
 
 ## Calibration Performance Comparison
 
-| Confidence Estimator | Expected Calibration Error (ECE) |
-|----------------------|---------------------------------:|
-| Baseline Confidence | **0.XXXX** |
-| Multi-Signal Confidence | **0.XXXX** |
+| Confidence Estimator    | Expected Calibration Error (ECE) |
+|-------------------------|---------------------------------:|
+| Baseline Confidence     |           **0.1590**             |
+| Multi-Signal Confidence |           **0.0429**             |
 
 The proposed multi-signal confidence estimation framework achieved a lower Expected Calibration Error than the conventional baseline confidence estimator, demonstrating that integrating complementary uncertainty signals produces confidence estimates that more closely align with observed prediction accuracy.
 
@@ -275,13 +272,13 @@ The proposed multi-signal confidence estimation framework achieved a lower Expec
 
 The statistical robustness of the calibration improvement was evaluated using paired bootstrap resampling.
 
-| Statistic | Value |
-|-----------|------:|
-| Mean Difference | **0.XXXX** |
-| 95% Confidence Interval | **(XXXX, XXXX)** |
-| Bootstrap P-value | **XXXX** |
+| Statistic               |        Value         |
+|-------------------------|---------------------:|
+| Mean Difference         |      **0.1069**      |
+| 95% Confidence Interval | **(0.0667, 0.1482)** |
+| Bootstrap P-value       |      **0.000**       |
 
-The paired bootstrap analysis demonstrated a consistent reduction in Expected Calibration Error across the bootstrap resamples. The confidence interval and bootstrap p-value provide statistical evidence supporting the improved calibration performance of the proposed multi-signal confidence estimation framework.
+The paired bootstrap analysis demonstrated a consistent reduction in Expected Calibration Error for the proposed multi-signal confidence estimator. The estimated mean reduction was 0.1069, with a 95% confidence interval of (0.0667, 0.1482) and a bootstrap p-value < 0.001, providing strong statistical evidence that the proposed framework produces substantially better-calibrated confidence estimates than the baseline confidence estimator.
 
 # Selective Prediction Analysis
 
@@ -291,10 +288,10 @@ Selective prediction performance was evaluated using the **Area Under the Risk�
 
 ## AURC Performance Comparison
 
-| Confidence Estimator | AURC |
-|----------------------|-----:|
-| Baseline Confidence | **0.XXXX** |
-| Multi-Signal Confidence | **0.XXXX** |
+| Confidence Estimator    |    AURC    |
+|-------------------------|-----------:|
+| Baseline Confidence     | **0.3497** |
+| Multi-Signal Confidence | **0.3040** |
 
 The proposed multi-signal confidence estimation framework achieved a lower Area Under the Risk–Coverage Curve than the conventional baseline confidence estimator, indicating that the fused confidence estimates provide a more effective balance between prediction reliability and coverage.
 
@@ -302,13 +299,13 @@ The proposed multi-signal confidence estimation framework achieved a lower Area 
 
 To evaluate the robustness of the observed improvement, paired bootstrap resampling was performed using repeated bootstrap samples.
 
-| Statistic | Value |
-|-----------|------:|
-| Mean Difference | **XXXX** |
-| 95% Confidence Interval | **(XXXX, XXXX)** |
-| Bootstrap P-value | **XXXX** |
+| Statistic               |        Value          |
+|-------------------------|----------------------:|
+| Mean Difference         |      **0.0453**       |
+| 95% Confidence Interval | **(-0.0121, 0.1044)** |
+| Bootstrap P-value       |      **0.118**        |
 
-The paired bootstrap comparison indicated that the proposed framework consistently produced lower AURC values across the bootstrap resamples. Where the confidence interval includes zero, the results should be interpreted as evidence of a favourable performance trend rather than statistically conclusive superiority. Where the confidence interval excludes zero, the results provide statistical evidence supporting the improved selective prediction performance of the proposed framework.
+The paired bootstrap comparison indicated that the proposed multi-signal confidence estimator consistently achieved lower AURC values than the baseline confidence estimator, corresponding to an estimated mean improvement of 0.0453. However, the 95% confidence interval (-0.0121, 0.1044) includes zero and the bootstrap p-value of 0.118 indicates that, although the results show a favourable improvement trend, they do not provide sufficient statistical evidence to conclude a significant improvement in selective prediction performance.
 
 # Overall Experimental Results
 
@@ -316,13 +313,13 @@ The proposed multi-signal confidence estimation framework was compared with the 
 
 The overall experimental findings are summarised below.
 
-| Evaluation Metric | Baseline | Multi-Signal | Improvement | 95% Confidence Interval | Bootstrap P-value | Interpretation |
-|-------------------|---------:|-------------:|------------:|------------------------:|------------------:|----------------|
-| ROC-AUC | **0.XXXX** | **0.XXXX** | **+X.XXXX** | **(XXXX, XXXX)** | **XXXX** | Improved discrimination |
-| Expected Calibration Error (ECE) | **0.XXXX** | **0.XXXX** | **−X.XXXX** | **(XXXX, XXXX)** | **XXXX** | Improved calibration |
-| Area Under the Risk–Coverage Curve (AURC) | **0.XXXX** | **0.XXXX** | **−X.XXXX** | **(XXXX, XXXX)** | **XXXX** | Improved selective prediction |
+|            Evaluation Metric              | Baseline   | Multi-Signal |     Improvement     | 95% Confidence Interval | Bootstrap P-value |        Interpretation         |
+|-------------------------------------------|-----------:|-------------:|--------------------:|------------------------:|------------------:|-------------------------------|
+| ROC-AUC                                   | **0.6855** | **0.7310**   | **+0.0452(6.64%)**  |    **(0.0307, 0.0595)** |     **0.000**     | Improved discrimination       |
+| Expected Calibration Error (ECE)          | **0.1590** | **0.0429**   | **−0.1069(73.00%)** |    **(0.0667, 0.1482)** |     **0.000**     | Improved calibration          |
+| Area Under the Risk–Coverage Curve (AURC) | **0.3497** | **0.3040**   | **−0.0453(13.06%**  |   **(-0.0121, 0.1044)** |     **0.118**     | Improved selective prediction |
 
-Overall, the proposed multi-signal confidence estimation framework consistently outperformed the conventional baseline confidence estimator across all three evaluation perspectives. The largest improvement was observed for calibration performance, while discrimination and selective prediction also demonstrated favourable improvements. Paired bootstrap statistical analysis provided additional evidence regarding the robustness of these improvements and supported the conclusions presented throughout the dissertation.
+Overall, the proposed multi-signal confidence estimation framework consistently outperformed the conventional baseline confidence estimator across discrimination, calibration and selective prediction. The largest improvement was observed in calibration, with a 73.0% reduction in Expected Calibration Error, while discrimination improved by 6.64%. Although selective prediction also improved by 13.06%, the paired bootstrap analysis indicated that this improvement should be interpreted as a favourable trend rather than statistically conclusive evidence. Together, these results demonstrate that integrating complementary uncertainty signals can produce more reliable confidence estimates than conventional maximum probability confidence.
 
 # Dataset
 
