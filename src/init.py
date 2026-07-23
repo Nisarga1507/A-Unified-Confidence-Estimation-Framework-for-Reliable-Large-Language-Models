@@ -10,7 +10,7 @@ Option Likelihood Signals and Multi-Signal Confidence Fusion"
 Newcastle University
 MSc Data Science
 
-Author: Nisaega
+Author: Nisarga
 """
 
 __version__ = "1.0.0"
