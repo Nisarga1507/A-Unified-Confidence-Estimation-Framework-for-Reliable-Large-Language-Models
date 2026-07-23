@@ -1,0 +1,4 @@
+Comparison,Statistic,P-value
+Margin Score vs Confidence,35197.0,1.021694926520509e-283
+Probability Gap vs Confidence,38884.0,2.873512135851061e-279
+Normalised Entropy vs Confidence,253399.0,2.683463225876673e-81
