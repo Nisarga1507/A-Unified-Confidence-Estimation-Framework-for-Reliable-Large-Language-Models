@@ -1,5 +1,9 @@
+download_truthfulqa()
+
 load_truthfulqa()
 
-load_dataset()
+validate_dataset()
 
 save_processed_dataset()
+
+load_processed_dataset()
