@@ -1,9 +1,7 @@
-predictive_entropy()
+margin_score()
 
-margin()
+predictive_entropy()
 
 variation_ratio()
 
-entropy()
-
-option_likelihood()
+probability_gap
