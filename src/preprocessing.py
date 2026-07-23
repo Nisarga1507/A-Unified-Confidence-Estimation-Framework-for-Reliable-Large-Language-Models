@@ -1,5 +1,7 @@
-clean_dataset()
+remove_duplicates()
 
-format_prompt()
+validate_answers()
 
-prepare_multiple_choice()
+normalize_text()
+
+prepare_labels()
