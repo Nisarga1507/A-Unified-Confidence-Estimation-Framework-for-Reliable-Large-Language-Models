@@ -1,7 +1,7 @@
-load_tokenizer()
+predict()
 
-load_model()
+predict_proba()
 
-generate_response()
+batch_generate()
 
-get_logits()
+clear_gpu_cache()
