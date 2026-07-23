@@ -4,4 +4,6 @@ margin()
 
 variation_ratio()
 
+entropy()
+
 option_likelihood()
