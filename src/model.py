@@ -1,3 +1,11 @@
+load_model()
+
+load_tokenizer()
+
+generate_response()
+
+get_logits()
+
 predict()
 
 predict_proba()
