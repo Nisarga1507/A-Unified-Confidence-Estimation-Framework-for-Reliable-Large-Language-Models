@@ -1,0 +1,8 @@
+{
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "dataset": "TruthfulQA MC1",
+    "questions": 817,
+    "accuracy": 0.5055079559363526,
+    "evaluation": "option_scoring",
+    "seed": 42
+}
